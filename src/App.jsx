@@ -153,20 +153,20 @@ function App() {
                   <img src={item.icon} alt={item.name} className="toolbox-icon" />
                 </div>
                 <h3 className="toolbox-name">{item.name}</h3>
-                
+
                 <div className="toolbox-progress-wrapper">
                   <svg className="progress-ring" width="90" height="90">
-                    <circle className="progress-ring-circle-bg" stroke="rgba(255,255,255,0.05)" strokeWidth="6" fill="transparent" r="38" cx="45" cy="45"/>
-                    <circle 
-                      className="progress-ring-circle" 
-                      stroke={item.color} 
-                      strokeWidth="6" 
-                      fill="transparent" 
-                      r="38" 
-                      cx="45" 
-                      cy="45" 
-                      style={{ 
-                        strokeDasharray: `${2 * Math.PI * 38}`, 
+                    <circle className="progress-ring-circle-bg" stroke="rgba(255,255,255,0.05)" strokeWidth="6" fill="transparent" r="38" cx="45" cy="45" />
+                    <circle
+                      className="progress-ring-circle"
+                      stroke={item.color}
+                      strokeWidth="6"
+                      fill="transparent"
+                      r="38"
+                      cx="45"
+                      cy="45"
+                      style={{
+                        strokeDasharray: `${2 * Math.PI * 38}`,
                         strokeDashoffset: `${2 * Math.PI * 38 * (1 - item.percentage / 100)}`
                       }}
                     />
@@ -278,7 +278,7 @@ function App() {
                 <div className="contact-icon"><Mail size={20} /></div>
                 <div>
                   <h4 className="contact-title">Email</h4>
-                  <a href="mailto:hello@nikhatshaikh.com" className="contact-text">hello@nikhatshaikh.com</a>
+                  <a href="mailto:hello@nikhatshaikh.com" className="contact-text">nikhatshaikh7276@gmail.com</a>
                 </div>
               </div>
 
@@ -286,15 +286,15 @@ function App() {
                 <div className="contact-icon"><Phone size={20} /></div>
                 <div>
                   <h4 className="contact-title">Phone</h4>
-                  <a href="tel:+123456789" className="contact-text">+1 (234) 567-890</a>
+                  <a href="tel:+123456789" className="contact-text">+91 9309118663</a>
                 </div>
               </div>
 
               <div className="contact-item">
                 <div className="contact-icon"><MapPin size={20} /></div>
                 <div>
-                  <h4 className="contact-title">Location</h4>
-                  <span className="contact-text">New York, NY - Remote Available</span>
+                  <h4 className="contact-title">Address</h4>
+                  <span className="contact-text">Santosh Bhavan, Nallasopara (E)</span>
                 </div>
               </div>
             </div>
