@@ -14,7 +14,7 @@ function App() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
 
-      const sections = ['home', 'portfolio', 'skills', 'services', 'contact'];
+      const sections = ['home', 'toolbox', 'portfolio', 'skills', 'services', 'contact'];
       let current = '';
 
       sections.forEach(section => {
@@ -40,6 +40,7 @@ function App() {
 
   const navLinks = [
     { name: 'Home', id: 'home' },
+    { name: 'Toolbox', id: 'toolbox' },
     { name: 'Portfolio', id: 'portfolio' },
     { name: 'Skills', id: 'skills' },
     { name: 'Services', id: 'services' },
@@ -66,6 +67,13 @@ function App() {
     { name: 'InDesign', level: '80%' },
     { name: 'After Effects', level: '70%' },
     { name: 'Typography', level: '95%' },
+  ];
+
+  const toolboxItems = [
+    { name: 'Adobe Photoshop', percentage: 95, color: '#31a8ff', shadowColor: 'rgba(49, 168, 255, 0.4)', icon: 'https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg' },
+    { name: 'Adobe Illustrator', percentage: 90, color: '#ff9a00', shadowColor: 'rgba(255, 154, 0, 0.4)', icon: 'https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg' },
+    { name: 'Canva Pro', percentage: 95, color: '#00c4cc', shadowColor: 'rgba(0, 196, 204, 0.4)', icon: 'https://upload.wikimedia.org/wikipedia/en/thumb/b/bb/Canva_Logo.svg/500px-Canva_Logo.svg.png' },
+    { name: 'CorelDraw', percentage: 85, color: '#0fd04b', shadowColor: 'rgba(15, 208, 75, 0.4)', icon: 'https://tidbits.com/uploads/2020/03/CorelDRAW-2020-icon.png' },
   ];
 
   return (
@@ -126,6 +134,47 @@ function App() {
           <span className="scroll-text">Scroll Down</span>
           <div className="mouse flex-center">
             <div className="wheel"></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Toolbox Section */}
+      <section id="toolbox">
+        <div className="container">
+          <div className="section-header">
+            <span className="section-tagline animate-fade-in-up">MY TOOLBOX</span>
+            <h2 className="toolbox-title animate-fade-in-up">Creative <span className="text-gradient">Arsenal</span></h2>
+          </div>
+
+          <div className="toolbox-grid">
+            {toolboxItems.map((item, index) => (
+              <div className="toolbox-card animate-fade-in-up" key={item.name} style={{ animationDelay: `${index * 0.1}s` }}>
+                <div className="toolbox-icon-wrapper" style={{ boxShadow: `0 0 30px ${item.shadowColor}` }}>
+                  <img src={item.icon} alt={item.name} className="toolbox-icon" />
+                </div>
+                <h3 className="toolbox-name">{item.name}</h3>
+                
+                <div className="toolbox-progress-wrapper">
+                  <svg className="progress-ring" width="90" height="90">
+                    <circle className="progress-ring-circle-bg" stroke="rgba(255,255,255,0.05)" strokeWidth="6" fill="transparent" r="38" cx="45" cy="45"/>
+                    <circle 
+                      className="progress-ring-circle" 
+                      stroke={item.color} 
+                      strokeWidth="6" 
+                      fill="transparent" 
+                      r="38" 
+                      cx="45" 
+                      cy="45" 
+                      style={{ 
+                        strokeDasharray: `${2 * Math.PI * 38}`, 
+                        strokeDashoffset: `${2 * Math.PI * 38 * (1 - item.percentage / 100)}`
+                      }}
+                    />
+                  </svg>
+                  <span className="progress-text">{item.percentage}%</span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
